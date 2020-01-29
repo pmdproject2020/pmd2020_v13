@@ -11,5 +11,4 @@ tensorflow >=1.0.0
 sklearn >= 0.0
 h5py>=0.0.0
 Pillow >= 0.0.0
-Werkzeug>=0.14.1
 flask-ngrok >= 0.0.25
