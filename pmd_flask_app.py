@@ -179,7 +179,8 @@ def predict_my_image():
   image_name=globals()['FILENAME_upld'] #os.listdir(app.config['IMAGE_UPLOAD'])
   print(f"\n{image_name} => GOING TO BE Predicted\n. . . . . . . . .")
   ans=predict_the_class(load_PMD_model(),get_image(image_name))
-  #clear_img_folder()
+  print(f"=============================\nFinal Ans : {ans}\n====================================>")
+  clear_img_folder()
   return render_template('result.html',Ans=ans)
 
 if __name__=="__main__":
