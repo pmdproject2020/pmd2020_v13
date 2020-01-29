@@ -132,7 +132,7 @@ def allowed_file(filename):
 
 app=Flask(__name__)
 #run_with_ngrok(app)
-clear_img_folder()			#NEW Change
+#clear_img_folder()			#NEW Change
 app.config['SECRET_KEY']="XDXDXDLoLlOl123"
 #app.config['DEBUG']=True
 app.config['IMAGE_UPLOAD']=f'{os.getcwd()}/static/images' #make_img_folder()#os.path.join(os.getcwd(),'static','images')
@@ -143,7 +143,7 @@ FILENAME_upld="nothing.png"
 @app.route('/')
 def home_page():
   #path_to_images=make_img_folder()
-  clear_img_folder()
+  #clear_img_folder()
   return render_template('index.html',val=False,msg="Upload an Image")
 
 @app.route('/upload',methods=["POST","GET"])
@@ -179,7 +179,7 @@ def predict_my_image():
   image_name=globals()['FILENAME_upld'] #os.listdir(app.config['IMAGE_UPLOAD'])
   print(f"\n{image_name} => GOING TO BE Predicted\n. . . . . . . . .")
   ans=predict_the_class(load_PMD_model(),get_image(image_name))
-  clear_img_folder()
+  #clear_img_folder()
   return render_template('result.html',Ans=ans)
 
 if __name__=="__main__":
