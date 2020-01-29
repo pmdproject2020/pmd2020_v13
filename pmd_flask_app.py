@@ -154,8 +154,8 @@ def upload_img():
     k=False
     if request.files and request.files['myImage'].filename != '' and allowed_file( request.files['myImage'].filename ):
       filename=request.files['myImage']
-      global FILENAME_upld
-      FILENAME_upld = secure_filename(filename.filename)
+      #global FILENAME_upld
+      globals()['FILENAME_upld'] = secure_filename(filename.filename)
       
       print(f"\n===================================\nUploaded file name : {filename} in upload section\n========================================>")
       filename.save(os.path.join(app.config['IMAGE_UPLOAD'],FILENAME_upld))
@@ -175,8 +175,8 @@ def upload_img():
 
 @app.route('/predict')
 def predict_my_image():
-  global FILENAME_upld
-  image_name=FILENAME_upld #os.listdir(app.config['IMAGE_UPLOAD'])
+  #global FILENAME_upld
+  image_name=globals()['FILENAME_upld'] #os.listdir(app.config['IMAGE_UPLOAD'])
   print(f"\n{image_name} => GOING TO BE Predicted\n. . . . . . . . .")
   ans=predict_the_class(load_PMD_model(),get_image(image_name))
   clear_img_folder()
