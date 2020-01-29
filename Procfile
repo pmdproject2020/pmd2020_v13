@@ -1,0 +1,1 @@
+web: gunicorn pmd_flask_app:app
