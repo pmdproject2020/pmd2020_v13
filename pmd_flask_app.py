@@ -181,6 +181,7 @@ def predict_my_image():
   ans=predict_the_class(load_PMD_model(),get_image(image_name))
   print(f"=============================\nFinal Ans : {ans}\n====================================>")
   clear_img_folder()
+  globals()['FILENAME_upld']=""		#ADDED
   return render_template('result.html',Ans=ans)
 
 if __name__=="__main__":
