@@ -132,7 +132,7 @@ def allowed_file(filename):
 
 app=Flask(__name__)
 #run_with_ngrok(app)
-#clear_img_folder()			#NEW Change
+clear_img_folder()			#NEW Change
 app.config['SECRET_KEY']="XDXDXDLoLlOl123"
 #app.config['DEBUG']=True
 app.config['IMAGE_UPLOAD']=f'{os.getcwd()}/static/images' #make_img_folder()#os.path.join(os.getcwd(),'static','images')
@@ -148,7 +148,7 @@ def home_page():
 
 @app.route('/upload',methods=["POST","GET"])
 def upload_img():
-  clear_img_folder()
+  #clear_img_folder()
   if request.method=="POST":
     #app.config['IMAGE_UPLOAD']=make_img_folder()#os.path.join(os.getcwd(),'static','images')
     k=False
